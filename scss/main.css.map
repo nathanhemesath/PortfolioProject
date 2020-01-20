@@ -1,0 +1,18 @@
+{
+    "version": 3,
+    "mappings": "AOAA,AAAA,EAAE,CAAC;EACC,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "main.scss",
+        "partials/_fonts.scss",
+        "partials/_buttons.scss",
+        "partials/_homepage.scss",
+        "partials/_about.scss",
+        "partials/_hireme.scss",
+        "partials/_blog.scss",
+        "partials/components/_blog-posts.scss",
+        "partials/_navigation.scss",
+        "partials/_video-modals.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

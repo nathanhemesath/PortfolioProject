@@ -1,0 +1,20 @@
+// helpers
+@import 'partials/helpers/fonts';
+@import 'partials/helpers/buttons';
+
+// design theme 
+@import 'partials/components/blog-posts';
+@import 'partials/components/nav';
+@import 'partials/components/video-modals';
+
+// homepage 
+@import 'partials/pages/homepage'; 
+
+// about
+@import 'partials/pages/about'; 
+
+// hire me
+@import 'partials/pages/hireme';
+
+//blog
+@import 'partials/pages/blog';

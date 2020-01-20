@@ -1,0 +1,167 @@
+// Variables
+$primary-color: #e21836;
+$letterspacing: -0.04em;
+$arrow-rotation: rotate(-45deg);
+// Vendor prefixing for shorthand properties
+@mixin prefix($property, $value) {
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value;
+	-webkit-#{$property}: $value;
+	#{$property}: $value;
+}
+
+//Positioning Mixin
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+	bottom: $bottom;
+	left: $left;
+	position: $position;
+	right: $right;
+	top: $top;
+}
+
+@mixin scale($width, $height) {
+	height: 0;
+	padding-top: $width / $height * 100%;
+	position: relative;
+}
+
+// Breakpoints
+@mixin medium-down {
+	@media only screen and (max-width: 959px) {
+		@content;
+	}
+}
+
+@mixin large-down {
+	@media only screen and (max-width: 1159px) {
+		@content;
+	}
+}
+
+@mixin medium-up {
+	@media only screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin large-up {
+	@media only screen and (min-width: 960px) {
+		@content;
+	}
+}
+
+@mixin small {
+	@media only screen and (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin medium {
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		@content;
+	}
+}
+
+@mixin large {
+	@media only screen and (min-width: 960px) and (max-width: 1279px) {
+		@content;
+	}
+}
+
+@mixin xlarge {
+	@media only screen and (min-width: 1200px) {
+		@content;
+	}
+}
+
+// create media specific classes
+@mixin media-specific ($selector, $map: (medium-down: false, large-down: false, medium-up: true, large-up: true, small: true, medium: true, large: false, xlarge: false)) {
+	#{$selector} {
+		@content;
+	}
+	@if (map-get($map, medium-down) != false) {
+		@media only screen and (max-width: 959px) {
+			#{$selector} {
+				&-medium-down {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, large-down) != false) {
+		@media only screen and (max-width: 1279px) {
+			#{$selector} {
+				&-large-down {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, medium-up) != false) {
+		@media only screen and (min-width: 768px) {
+			#{$selector} {
+				&-medium-up {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, large-up) != false) {
+		@media only screen and (min-width: 960px) {
+			#{$selector} {
+				&-large-up {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, small) != false) {
+		@media only screen and (max-width: 767px) {
+			#{$selector} {
+				&-small {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, medium) != false) {
+		@media only screen and (min-width: 768px) and (max-width: 959px) {
+			#{$selector} {
+				&-medium {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, large) != false) {
+		@media only screen and (min-width: 960px) and (max-width: 1279px) {
+			#{$selector} {
+				&-large {
+					@content;
+				}
+			}
+		}
+	}
+	@if (map-get($map, xlarge) != false) {
+		@media only screen and (min-width: 1280px) {
+			#{$selector} {
+				&-xlarge {
+					@content;
+				}
+			}
+		}
+	}
+}
+
+// Responsive background images
+@mixin background-image($name, $color) {
+	background: $color url('#{$name}-small.jpg') no-repeat 50% 50%;
+	background-size: auto 100%;
+	@include medium-up {
+		background-image: url('#{$name}-medium.jpg');
+	}
+	@include large-up {
+		background-image: url('#{$name}-large.jpg');
+	}
+}

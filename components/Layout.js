@@ -16,6 +16,7 @@ export default ({ children, title }) => (
     <Head>
       <title>NextPortfolio</title>
     </Head>
+
     <header>
       <Link href="/"><a>Home</a></Link>
       <Link href="/about"><a>About</a></Link>
@@ -26,7 +27,10 @@ export default ({ children, title }) => (
     <h1>{title}</h1>
     {children}
 
-    <footer>&copy; {new Date().getFullYear()}</footer>
+    <footer>
+      &copy; {new Date().getFullYear()}
+    </footer>
+
     <style jsx>{`
       .root {
         display: flex;
