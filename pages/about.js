@@ -5,7 +5,7 @@ import { Component } from "react";
 
 export default class About extends Component {
   static async getInitialProps() {
-    const res = await fetch("https://api.github.com/users/reedbarger");
+    const res = await fetch("https://api.github.com/users/nathanhemesath");
     const statusCode = res.status > 200 ? res.status : false;
     const data = await res.json();
 
@@ -22,7 +22,7 @@ export default class About extends Component {
     return (
       <Layout title="About">
         <p>{user.name}</p>
-        <img src={user.avatar_url} alt="Reed" height="200px" />
+        <img src={user.avatar_url} alt="Nate Hemesath" height="200px" />
       </Layout>
     );
   }
